@@ -1,10 +1,17 @@
-﻿namespace NextSmallerNumber
+﻿using System;
+
+namespace NextSmallerNumber
 {
     public class NextSmallerNumber
     {
         public int FindNext(int input)
         {
-            throw new System.NotImplementedException();
+            if (input >= 0 && input <= 9)
+            {
+                return -1;
+            }
+
+            throw new NotImplementedException();
         }
     }
 }
