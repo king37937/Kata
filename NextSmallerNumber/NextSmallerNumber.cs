@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace NextSmallerNumber
 {
@@ -10,8 +11,14 @@ namespace NextSmallerNumber
             {
                 return -1;
             }
-
-            throw new NotImplementedException();
+            else
+            {
+                var digits = input.ToString().ToCharArray();
+                var temp = digits[0];
+                digits[0] = digits[1];
+                digits[1] = temp;
+                return int.Parse(new string(digits));
+            }
         }
     }
 }
