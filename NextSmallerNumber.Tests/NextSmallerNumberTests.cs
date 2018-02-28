@@ -22,6 +22,17 @@ namespace Kata.Tests
             Assert.AreEqual(expected, actual);
         }
 
-        
+        [TestCase(21, 12)]
+        public void Two_Digits_Should_Return_Smaller(int input, int expected)
+        {
+            //arrange
+            var nextSmallerNumber = new NextSmallerNumber.NextSmallerNumber();
+
+            //act
+            var actual = nextSmallerNumber.FindNext(input);
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
