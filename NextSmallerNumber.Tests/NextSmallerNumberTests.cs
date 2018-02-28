@@ -7,12 +7,12 @@ namespace Kata.Tests
     [TestFixture]
     public class NextSmallerNumberTests
     {
-        [Test]
-        public void One_Digit_Should_Return_NegativeOne()
+        [TestCase(1,-1)]
+        [TestCase(0, -1)]
+        [TestCase(9, -1)]
+        public void One_Digit_Should_Return_NegativeOne(int input, int expected)
         {
             //arrange
-            var input = 1;
-            var expected = -1;
             var nextSmallerNumber = new NextSmallerNumber.NextSmallerNumber();
 
             //act
@@ -21,5 +21,7 @@ namespace Kata.Tests
             //assert
             Assert.AreEqual(expected, actual);
         }
+
+        
     }
 }
