@@ -35,7 +35,7 @@ namespace NextSmallerNumber
                 return int.Parse(string.Join("", newNumbers));
             }
 
-            return -1;
+            return input;
         }
 
         private void Swap(List<char> list, int firstIndex, int secondIndex)
