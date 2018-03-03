@@ -10,14 +10,10 @@ namespace NextSmallerNumber
         public int FindNext(int input)
         {
             var numbers = input.ToString().ToCharArray().ToList();
-            if (numbers.Count == 1)
-            {
-                return -1;
-            }
-
+            
             for (int i = numbers.Count - 1; i >= 0; i--)
             {
-                var largerNumberIndex = FindLargerNumberIndexFromTail(numbers, numbers[i], i);
+                var largerNumberIndex = FindLargerNumberIndexFromTail(numbers, i);
                 if (largerNumberIndex == i)
                 {
                     continue;
@@ -35,7 +31,7 @@ namespace NextSmallerNumber
                 return int.Parse(string.Join("", newNumbers));
             }
 
-            return input;
+            return -1;
         }
 
         private void Swap(List<char> list, int firstIndex, int secondIndex)
@@ -50,17 +46,17 @@ namespace NextSmallerNumber
             return numbers.OrderByDescending(c => c).ToArray();
         }
 
-        private int FindLargerNumberIndexFromTail(List<char> numbers, char baseNumber, int startIndex)
+        private int FindLargerNumberIndexFromTail(List<char> numbers, int startIndex)
         {
             for (var i = startIndex; i >= 0; i--)
             {
-                if (numbers[i] > baseNumber)
+                if (numbers[i] > numbers[startIndex])
                 {
                     return i;
                 }
             }
 
-            return numbers.IndexOf(baseNumber);
+            return startIndex;
         }
     }
 }

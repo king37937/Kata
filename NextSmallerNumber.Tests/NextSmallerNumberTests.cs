@@ -35,9 +35,9 @@ namespace Kata.Tests
             NextSmallerNumberShouldBe(input, expected);
         }
 
-        [TestCase(111, 111)]
-        [TestCase(135, 135)]
-        public void NoSmallerNumber_Should_Return_Itself(int input, int expected)
+        [TestCase(111, -1)]
+        [TestCase(135, -1)]
+        public void NoSmallerNumber_Should_Return_NegativeOne(int input, int expected)
         {
             NextSmallerNumberShouldBe(input, expected);
         }
