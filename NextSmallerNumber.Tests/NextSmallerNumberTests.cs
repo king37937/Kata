@@ -34,5 +34,18 @@ namespace Kata.Tests
             //assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestCase(231, 213)]
+        public void Three_Digits_Should_Return_Smaller(int input, int expected)
+        {
+            //arrange
+            var nextSmallerNumber = new NextSmallerNumber.NextSmallerNumber();
+
+            //act
+            var actual = nextSmallerNumber.FindNext(input);
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
