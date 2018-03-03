@@ -25,6 +25,8 @@ namespace Kata.Tests
         [TestCase(312, 231)]
         [TestCase(3214,3142)]
         [TestCase(4948900009, 4948099000)]
+        [TestCase(51226262651257, 51226262627551)]
+        [TestCase(1956584962552167, 1956584962551762)]
         public void MoreThenTwoDigits_Should_Return_Smaller(long input, long expected)
         {
             NextSmallerNumberShouldBe(input, expected);
