@@ -27,6 +27,11 @@ namespace NextSmallerNumber
                 var largestNumberFromSublist = GetLargestGetNumber(sublist);
                 var newNumbers = numbers.GetRange(0, largerNumberIndex + 1);
                 newNumbers.AddRange(largestNumberFromSublist);
+                if (newNumbers[0] == '0')
+                {
+                    return -1;
+                }
+
                 return int.Parse(string.Join("", newNumbers));
             }
 
