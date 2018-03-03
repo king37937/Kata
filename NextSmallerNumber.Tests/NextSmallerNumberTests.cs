@@ -24,25 +24,26 @@ namespace Kata.Tests
         [TestCase(231, 213)]
         [TestCase(312, 231)]
         [TestCase(3214,3142)]
-        public void MoreThenTwoDigits_Should_Return_Smaller(int input, int expected)
+        [TestCase(4948900009, 4948099000)]
+        public void MoreThenTwoDigits_Should_Return_Smaller(long input, long expected)
         {
             NextSmallerNumberShouldBe(input, expected);
         }
 
         [TestCase(1027, -1)]
-        public void SmallestNumberWithZeroLeading_Should_Return_NegativeOne(int input, int expected)
+        public void SmallestNumberWithZeroLeading_Should_Return_NegativeOne(long input, long expected)
         {
             NextSmallerNumberShouldBe(input, expected);
         }
 
         [TestCase(111, -1)]
         [TestCase(135, -1)]
-        public void NoSmallerNumber_Should_Return_NegativeOne(int input, int expected)
+        public void NoSmallerNumber_Should_Return_NegativeOne(long input, long expected)
         {
             NextSmallerNumberShouldBe(input, expected);
         }
 
-        private void NextSmallerNumberShouldBe(int input, int expected)
+        private void NextSmallerNumberShouldBe(long input, long expected)
         {
             //arrange
             var nextSmallerNumber = new NextSmallerNumber.NextSmallerNumber();

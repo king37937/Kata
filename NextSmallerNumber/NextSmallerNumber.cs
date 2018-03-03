@@ -7,11 +7,11 @@ namespace NextSmallerNumber
 {
     public class NextSmallerNumber
     {
-        public int FindNext(int input)
+        public long FindNext(long input)
         {
             var numbers = input.ToString().ToCharArray().ToList();
             
-            for (int i = numbers.Count - 1; i >= 0; i--)
+            for (var i = numbers.Count - 1; i >= 0; i--)
             {
                 var largerNumberIndex = FindLargerNumberIndexFromTail(numbers, i);
                 if (largerNumberIndex == i)
@@ -28,7 +28,7 @@ namespace NextSmallerNumber
                     return -1;
                 }
 
-                return int.Parse(string.Join("", newNumbers));
+                return long.Parse(string.Join("", newNumbers));
             }
 
             return -1;
