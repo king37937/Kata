@@ -9,15 +9,14 @@ namespace NextSmallerNumber
     {
         public int FindNext(int input)
         {
-            if (input >= 0 && input <= 9)
+            var numbers = input.ToString().ToCharArray().ToList();
+            if (numbers.Count == 1)
             {
                 return -1;
             }
 
-            var numbers = input.ToString().ToCharArray().ToList();
-            var largerNumberIndex = FindLargerNumberIndex(numbers, numbers[numbers.Count - 1]);
-            var subNumbers = numbers.GetRange(largerNumberIndex, numbers.Count - largerNumberIndex);
-            var smallestNumber = GetSmallestNumber(subNumbers);
+            var largerNumberIndex = FindLargerNumberIndexFromTail(numbers, numbers[numbers.Count - 1]);
+            var smallestNumber = GetSmallestNumber(numbers.GetRange(largerNumberIndex, numbers.Count - largerNumberIndex));
             var newNumbers = numbers.GetRange(0, largerNumberIndex);
             newNumbers.AddRange(smallestNumber);
             return int.Parse(string.Join("", newNumbers));
@@ -28,7 +27,7 @@ namespace NextSmallerNumber
             return numbers.OrderBy(c => c).ToArray();
         }
 
-        private int FindLargerNumberIndex(List<char> numbers, char baseNumber)
+        private int FindLargerNumberIndexFromTail(List<char> numbers, char baseNumber)
         {
             for (var i = numbers.Count - 1; i >= 0; i--)
             {
@@ -38,7 +37,7 @@ namespace NextSmallerNumber
                 }
             }
 
-            return numbers.Count - 1;
+            return numbers.Count-1;
         }
     }
 }
