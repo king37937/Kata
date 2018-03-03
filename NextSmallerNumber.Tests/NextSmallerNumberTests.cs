@@ -22,10 +22,13 @@ namespace Kata.Tests
         }
 
         [TestCase(231, 213)]
-        public void Three_Digits_Should_Return_Smaller(int input, int expected)
+        [TestCase(312, 231)]
+        [TestCase(3214,3142)]
+        public void MoreThenTwoDigits_Should_Return_Smaller(int input, int expected)
         {
             NextSmallerNumberShouldBe(input, expected);
         }
+
 
         private void NextSmallerNumberShouldBe(int input, int expected)
         {

@@ -15,21 +15,39 @@ namespace NextSmallerNumber
                 return -1;
             }
 
-            var largerNumberIndex = FindLargerNumberIndexFromTail(numbers, numbers[numbers.Count - 1]);
-            var smallestNumber = GetSmallestNumber(numbers.GetRange(largerNumberIndex, numbers.Count - largerNumberIndex));
-            var newNumbers = numbers.GetRange(0, largerNumberIndex);
-            newNumbers.AddRange(smallestNumber);
-            return int.Parse(string.Join("", newNumbers));
+            for (int i = numbers.Count - 1; i >= 0; i--)
+            {
+                var largerNumberIndex = FindLargerNumberIndexFromTail(numbers, numbers[i], i);
+                if (largerNumberIndex == i)
+                {
+                    continue;
+                }
+                Swap(numbers, largerNumberIndex, i);
+                var sublist = numbers.GetRange(largerNumberIndex + 1, numbers.Count - largerNumberIndex -1);
+                var largestNumberFromSublist = GetLargestGetNumber(sublist);
+                var newNumbers = numbers.GetRange(0, largerNumberIndex + 1);
+                newNumbers.AddRange(largestNumberFromSublist);
+                return int.Parse(string.Join("", newNumbers));
+            }
+
+            return -1;
         }
 
-        private char[] GetSmallestNumber(List<char> numbers)
+        private void Swap(List<char> list, int firstIndex, int secondIndex)
         {
-            return numbers.OrderBy(c => c).ToArray();
+            var tmp = list[firstIndex];
+            list[firstIndex] = list[secondIndex];
+            list[secondIndex] = tmp;
         }
 
-        private int FindLargerNumberIndexFromTail(List<char> numbers, char baseNumber)
+        private char[] GetLargestGetNumber(List<char> numbers)
         {
-            for (var i = numbers.Count - 1; i >= 0; i--)
+            return numbers.OrderByDescending(c => c).ToArray();
+        }
+
+        private int FindLargerNumberIndexFromTail(List<char> numbers, char baseNumber, int startIndex)
+        {
+            for (var i = startIndex; i >= 0; i--)
             {
                 if (numbers[i] > baseNumber)
                 {
@@ -37,7 +55,7 @@ namespace NextSmallerNumber
                 }
             }
 
-            return numbers.Count-1;
+            return numbers.IndexOf(baseNumber);
         }
     }
 }
