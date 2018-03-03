@@ -1,4 +1,6 @@
-﻿using System;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace NextSmallerNumber
@@ -11,14 +13,33 @@ namespace NextSmallerNumber
             {
                 return -1;
             }
-            else
+
+            var numbers = input.ToString().ToCharArray().ToList();
+            var largerNumberIndex = FindLargerNumberIndex(numbers, numbers[numbers.Count - 1]);
+            var subNumbers = numbers.GetRange(largerNumberIndex, numbers.Count - largerNumberIndex);
+            var smallestNumber = GetSmallestNumber(subNumbers);
+            var newNumbers = numbers.GetRange(0, largerNumberIndex);
+            newNumbers.AddRange(smallestNumber);
+            return int.Parse(string.Join("", newNumbers));
+        }
+
+        private char[] GetSmallestNumber(List<char> numbers)
+        {
+            return numbers.OrderBy(c => c).ToArray();
+        }
+
+        private int FindLargerNumberIndex(List<char> numbers, char baseNumber)
+        {
+            for (var i = numbers.Count - 1; i >= 0; i--)
             {
-                var digits = input.ToString().ToCharArray();
-                var temp = digits[0];
-                digits[0] = digits[1];
-                digits[1] = temp;
-                return int.Parse(new string(digits));
+                if (numbers[i] > baseNumber)
+                {
+                    return i;
+                }
             }
+
+            return numbers.Count - 1;
         }
     }
 }
+
