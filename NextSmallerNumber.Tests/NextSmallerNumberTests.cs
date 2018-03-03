@@ -29,6 +29,11 @@ namespace Kata.Tests
             NextSmallerNumberShouldBe(input, expected);
         }
 
+        [TestCase(1027, -1)]
+        public void SmallestNumberWithZeroLeading_Should_Return_NegativeOne(int input, int expected)
+        {
+            NextSmallerNumberShouldBe(input, expected);
+        }
 
         private void NextSmallerNumberShouldBe(int input, int expected)
         {
