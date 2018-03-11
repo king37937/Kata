@@ -11,35 +11,40 @@ namespace KataPlayWithTwoStrings
     {
         public string WorkOnStrings(string stringA, string stringB)
         {
-            for (int i = 0; i < stringA.Length; i++)
-            {
-                var index = stringB.IndexOf(stringA[i].ToString(), StringComparison.CurrentCultureIgnoreCase);
-                if (index >= 0)
-                {
-                    stringB = ReverseCharCase(stringB, stringB[index]);
-                }
-            }
-
-            for (int i = 0; i < stringB.Length; i++)
-            {
-                var index = stringA.IndexOf(stringB[i].ToString(), StringComparison.CurrentCultureIgnoreCase);
-                if (index >= 0)
-                {
-                    stringA = ReverseCharCase(stringA, stringA[index]);
-                }
-            }
-
+            stringA = stringA.ReverseSameCharCaseWith(stringB);
+            stringB = stringB.ReverseSameCharCaseWith(stringA);
+            
             return stringA + stringB;
         }
+    }
 
-        private string ReverseCharCase(string input, char c)
+    public static class StringExtensions
+    {
+        public static string ReverseSameCharCaseWith(this string baseStr, string target)
         {
-            return input.Replace(c, InverseCase(c));
+            var ignoreList = new List<char>();
+            foreach (var c in baseStr)
+            {
+                var sameCharCount = GetCharCount(target, c);
+                if (sameCharCount % 2 == 1 && !ignoreList.Contains(c))
+                {
+                    baseStr = baseStr.Replace(c, ReverseCase(c));
+                }
+
+                ignoreList.Add(c);
+            }
+
+            return baseStr;
         }
 
-        private char InverseCase(char c)
+        private static int GetCharCount(string searchFrom, char match)
         {
-            return (char) (c ^ 32);
+            return searchFrom.Count(c => c == match || ReverseCase(c) == match);
+        }
+
+        private static char ReverseCase(char c)
+        {
+            return (char)(c^32);
         }
     }
 }
