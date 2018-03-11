@@ -37,5 +37,21 @@ namespace KataPlayWithTwoStrings.Tests
             //acturl
             Assert.AreEqual(expected, actual);
         }
+
+        [Test]
+        public void TestWorkOnStrings_Input_ab_aba_Should_Return_aBABA()
+        {
+            //arrange
+            var stringA = "ab";
+            var stringB = "aba";
+            var expected = "aBABA";
+            var target = new PlayWithTwoStrings();
+
+            //act
+            var actual = target.WorkOnStrings(stringA, stringB);
+
+            //acturl
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

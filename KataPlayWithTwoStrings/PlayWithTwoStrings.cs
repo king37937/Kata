@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,25 +11,25 @@ namespace KataPlayWithTwoStrings
     {
         public string WorkOnStrings(string stringA, string stringB)
         {
-            var reversedStringA = "";
-            var reversedStringB = "";
             for (int i = 0; i < stringA.Length; i++)
             {
-                if (stringB.Contains(stringA[i]))
+                var index = stringB.IndexOf(stringA[i].ToString(), StringComparison.CurrentCultureIgnoreCase);
+                if (index >= 0)
                 {
-                    reversedStringB = ReverseCharCase(stringB, stringA[i]);
+                    stringB = ReverseCharCase(stringB, stringB[index]);
                 }
             }
 
             for (int i = 0; i < stringB.Length; i++)
             {
-                if (stringA.Contains(stringB[i]))
+                var index = stringA.IndexOf(stringB[i].ToString(), StringComparison.CurrentCultureIgnoreCase);
+                if (index >= 0)
                 {
-                    reversedStringA = ReverseCharCase(stringA, stringB[i]);
+                    stringA = ReverseCharCase(stringA, stringA[index]);
                 }
             }
 
-            return reversedStringA + reversedStringB;
+            return stringA + stringB;
         }
 
         private string ReverseCharCase(string input, char c)
