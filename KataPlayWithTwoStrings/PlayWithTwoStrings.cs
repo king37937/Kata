@@ -10,7 +10,35 @@ namespace KataPlayWithTwoStrings
     {
         public string WorkOnStrings(string stringA, string stringB)
         {
-            return stringA + stringB;
+            var reversedStringA = "";
+            var reversedStringB = "";
+            for (int i = 0; i < stringA.Length; i++)
+            {
+                if (stringB.Contains(stringA[i]))
+                {
+                    reversedStringB = ReverseCharCase(stringB, stringA[i]);
+                }
+            }
+
+            for (int i = 0; i < stringB.Length; i++)
+            {
+                if (stringA.Contains(stringB[i]))
+                {
+                    reversedStringA = ReverseCharCase(stringA, stringB[i]);
+                }
+            }
+
+            return reversedStringA + reversedStringB;
+        }
+
+        private string ReverseCharCase(string input, char c)
+        {
+            return input.Replace(c, InverseCase(c));
+        }
+
+        private char InverseCase(char c)
+        {
+            return (char) (c ^ 32);
         }
     }
 }
