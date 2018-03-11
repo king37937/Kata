@@ -10,7 +10,7 @@ namespace KataPlayWithTwoStrings
     {
         public string WorkOnStrings(string stringA, string stringB)
         {
-            throw new NotImplementedException();
+            return stringA + stringB;
         }
     }
 }
