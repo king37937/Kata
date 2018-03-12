@@ -28,13 +28,27 @@ namespace KataPlayWithTwoStrings
                 var sameCharCount = GetCharCount(target, c);
                 if (sameCharCount % 2 == 1 && !ignoreList.Contains(c))
                 {
-                    baseStr = baseStr.Replace(c, ReverseCase(c));
+                    //baseStr = baseStr.Replace(c, ReverseCase(c));
+                    baseStr = ReverseCase(baseStr, c);
                 }
 
-                ignoreList.Add(c);
+                ignoreList.AddRange(new[]{ c, (char)(c^32)});
             }
 
             return baseStr;
+        }
+
+        private static string ReverseCase(string baseStr, char c)
+        {
+            var chars = baseStr.ToCharArray();
+            for (int i = 0; i < chars.Length; i++)
+            {
+                if (chars[i] == c || ReverseCase(chars[i]) == c)
+                {
+                    chars[i] = ReverseCase(chars[i]);
+                }
+            }
+            return new string(chars);
         }
 
         private static int GetCharCount(string searchFrom, char match)

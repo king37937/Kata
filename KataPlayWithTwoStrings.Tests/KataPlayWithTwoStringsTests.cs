@@ -53,5 +53,21 @@ namespace KataPlayWithTwoStrings.Tests
             //acturl
             Assert.AreEqual(expected, actual);
         }
+
+        [Test]
+        public void TestWorkOnStrings_Input_abcdeFgtrzw_defgGgfhjkwqe_Should_Return_abcDeFGtrzWDEFGgGFhjkWqE()
+        {
+            //arrange
+            var stringA = "abcdeFgtrzw";
+            var stringB = "defgGgfhjkwqe";
+            var expected = "abcDeFGtrzWDEFGgGFhjkWqE";
+            var target = new PlayWithTwoStrings();
+
+            //act
+            var actual = target.WorkOnStrings(stringA, stringB);
+
+            //acturl
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
