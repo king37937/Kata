@@ -22,20 +22,24 @@ namespace KataPlayWithTwoStrings
     {
         public static string ReverseSameCharCaseWith(this string baseStr, string target)
         {
-            var ignoreList = new List<char>();
+            var processedChars = new List<char>();
             foreach (var c in baseStr)
             {
                 var sameCharCount = GetCharCount(target, c);
-                if (sameCharCount % 2 == 1 && !ignoreList.Contains(c))
+                if (sameCharCount % 2 == 1 && !processedChars.Contains(c))
                 {
-                    //baseStr = baseStr.Replace(c, ReverseCase(c));
                     baseStr = ReverseCase(baseStr, c);
                 }
 
-                ignoreList.AddRange(new[]{ c, (char)(c^32)});
+                processedChars.AddRange(new[]{ c, ReverseCase(c)});
             }
 
             return baseStr;
+        }
+
+        private static int GetCharCount(string searchFrom, char match)
+        {
+            return searchFrom.Count(c => c == match || ReverseCase(c) == match);
         }
 
         private static string ReverseCase(string baseStr, char c)
@@ -49,11 +53,6 @@ namespace KataPlayWithTwoStrings
                 }
             }
             return new string(chars);
-        }
-
-        private static int GetCharCount(string searchFrom, char match)
-        {
-            return searchFrom.Count(c => c == match || ReverseCase(c) == match);
         }
 
         private static char ReverseCase(char c)
