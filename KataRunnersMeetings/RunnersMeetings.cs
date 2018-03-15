@@ -11,10 +11,18 @@ namespace KataRunnersMeetings
         public int CalculateRunningsMeetings(int[] startPosition, int[] speed)
         {
             var meetingCardinality = -1;
-            if (startPosition[0] < startPosition[1] && speed[0] <= speed[1])
+            if (startPosition[0] < startPosition[1] )
             {
-                meetingCardinality = -1;
+                if (speed[0] <= speed[1])
+                {
+                    meetingCardinality = -1;
+                }
+                else
+                {
+                    meetingCardinality = 2;
+                }
             }
+            
 
             return meetingCardinality;
         }
