@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +11,6 @@ namespace KataRunnersMeetings
     {
         public int CalculateRunningsMeetings(int[] startPosition, int[] speed)
         {
-            
             var runners = new List<Runner>();
             for (int i = 0; i < startPosition.Length; i++)
             {
@@ -21,26 +21,42 @@ namespace KataRunnersMeetings
                 });
             }
 
-            var meetingCardinality = -1;
-            var firstOrderRunner = runners.Find(r => r.Position.Equals(runners.Max(y => y.Position)));
-            var secondOrderRunner = runners.Find(r => r.Position.Equals(runners.Min(y => y.Position)));
-            if (firstOrderRunner.Speed >= secondOrderRunner.Speed)
+            var meetingCardinality = 1;
+
+            while (Continue(runners))
             {
-                meetingCardinality = -1;
-            }
-            else
-            {
-                meetingCardinality = 2;
+                runners.ForEach( r=> r.Position += Math.Round(r.Speed/60, 2) );
+                var samePositionRunnerCount = runners.GroupBy(r => r.Position).Max(g => g.Count());
+                meetingCardinality = Math.Max(meetingCardinality, samePositionRunnerCount);
             }
 
+            //runners.ForEach( x => Console.WriteLine(x.Position) );
 
-            return meetingCardinality;
+
+            return meetingCardinality == 1 ? -1 : meetingCardinality;
+        }
+
+        private bool Continue(List<Runner> runners)
+        {
+            runners.Sort((x, y) => x.Position.CompareTo(y.Position));
+            for (var i = 0; i < runners.Count-1; i++)
+            {
+                for (var j = i+1; j < runners.Count; j++)
+                {
+                    if ( runners[i].Speed > runners[j].Speed)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
     }
 
     public class Runner
     {
-        public float Position { set; get; }
-        public float Speed { set; get; }
+        public decimal Position { set; get; }
+        public decimal Speed { set; get; }
     }
 }
