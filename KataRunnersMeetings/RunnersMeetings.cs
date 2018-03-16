@@ -9,31 +9,32 @@ namespace KataRunnersMeetings
 {
     public class RunnersMeetings
     {
-        public int CalculateRunningsMeetings(int[] startPosition, int[] speed)
+        public int CalculateRunnersMeetings(int[] startPosition, int[] speed)
         {
             var runners = new List<Runner>();
             for (int i = 0; i < startPosition.Length; i++)
             {
                 runners.Add(new Runner()
                 {
-                    Position = startPosition[i],
+                    Position = ConvertToPositionPerMinute(startPosition[i]),
                     Speed = speed[i],
                 });
             }
 
             var meetingCardinality = 1;
-
             while (Continue(runners))
             {
-                runners.ForEach( r=> r.Position += Math.Round(r.Speed/60, 2) );
+                runners.ForEach( r=> r.Position += r.Speed );
                 var samePositionRunnerCount = runners.GroupBy(r => r.Position).Max(g => g.Count());
                 meetingCardinality = Math.Max(meetingCardinality, samePositionRunnerCount);
             }
 
-            //runners.ForEach( x => Console.WriteLine(x.Position) );
-
-
             return meetingCardinality == 1 ? -1 : meetingCardinality;
+        }
+
+        private int ConvertToPositionPerMinute(int startPosition)
+        {
+            return startPosition * 60;
         }
 
         private bool Continue(List<Runner> runners)
@@ -56,7 +57,7 @@ namespace KataRunnersMeetings
 
     public class Runner
     {
-        public decimal Position { set; get; }
-        public decimal Speed { set; get; }
+        public int Position { set; get; }
+        public int Speed { set; get; }
     }
 }
