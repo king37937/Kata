@@ -24,12 +24,22 @@ namespace KataRunnersMeetings
             var meetingCardinality = 1;
             while (Continue(runners))
             {
-                runners.ForEach( r=> r.Position += r.Speed );
-                var samePositionRunnerCount = runners.GroupBy(r => r.Position).Max(g => g.Count());
+                UpdatePosition(runners);
+                var samePositionRunnerCount = CountSamePositionRunners(runners);
                 meetingCardinality = Math.Max(meetingCardinality, samePositionRunnerCount);
             }
 
             return meetingCardinality == 1 ? -1 : meetingCardinality;
+        }
+
+        private int CountSamePositionRunners(List<Runner> runners)
+        {
+            return runners.GroupBy(r => r.Position).Max(g => g.Count());
+        }
+
+        private void UpdatePosition(List<Runner> runners)
+        {
+            runners.ForEach(r => r.Position += r.Speed);
         }
 
         private int ConvertToPositionPerMinute(int startPosition)
