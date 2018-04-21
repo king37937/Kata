@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataCountingChangeCombinations", "KataCountingChangeCombinations.csproj", "{04CAEAD5-E2A6-4B29-AD55-E7E3E8F6CF98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataCountingChangeCombinationsTests", "..\KataCountingChangeCombinationsTests\KataCountingChangeCombinationsTests.csproj", "{6C3B5237-3D3F-4876-BE7F-130B0A8805EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04CAEAD5-E2A6-4B29-AD55-E7E3E8F6CF98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04CAEAD5-E2A6-4B29-AD55-E7E3E8F6CF98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04CAEAD5-E2A6-4B29-AD55-E7E3E8F6CF98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04CAEAD5-E2A6-4B29-AD55-E7E3E8F6CF98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C3B5237-3D3F-4876-BE7F-130B0A8805EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C3B5237-3D3F-4876-BE7F-130B0A8805EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C3B5237-3D3F-4876-BE7F-130B0A8805EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C3B5237-3D3F-4876-BE7F-130B0A8805EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {02445912-9274-4AFC-A6D3-4C109D237741}
+	EndGlobalSection
+EndGlobal
