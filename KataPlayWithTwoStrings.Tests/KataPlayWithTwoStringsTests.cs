@@ -69,5 +69,11 @@ namespace KataPlayWithTwoStrings.Tests
             //acturl
             Assert.AreEqual(expected, actual);
         }
+
+        [Test]
+        public void DictTest()
+        {
+            (new PlayWithTwoStrings()).DictTest();
+        }
     }
 }
