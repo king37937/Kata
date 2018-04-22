@@ -26,5 +26,20 @@ namespace KataCountingChangeCombinations.Tests
             //assert
             Assert.AreEqual(expected, acturl);
         }
+
+        [Test()]
+        public void CountCombinationsTest_SampleCase()
+        {
+            //arrange
+            var money = 4;
+            var coins = new[] { 1, 2 };
+            var expected = 3;
+
+            //act
+            var acturl = CountingChangeCombinations.CountCombinations(money, coins);
+
+            //assert
+            Assert.AreEqual(expected, acturl);
+        }
     }
 }

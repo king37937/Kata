@@ -10,15 +10,30 @@ namespace KataCountingChangeCombinations
     {
         public static int CountCombinations(int money, int[] coins)
         {
-            int changeTimes = 0;
-            var orderedCoins = coins.OrderByDescending(x => x).ToList();
-            var remainMoney = money - orderedCoins[0];
-            if (remainMoney - orderedCoins[1] == 0)
+            var orderedCoins = coins.OrderBy(x => x).ToList();
+
+            var combination = FindCombination(money, orderedCoins, 0);
+
+            return combination;
+        }
+
+        private static int FindCombination(int money, List<int> coins, int index)
+        {
+            //find a conbination
+            if (money == 0)
             {
-                changeTimes++;
+                return 1;
             }
 
-            return changeTimes;
+            if (money < 0 || index == coins.Count)
+            {
+                return 0;
+            }
+
+            var firstCoin = FindCombination(money - coins[index], coins, index);
+            var remainCoin = FindCombination(money, coins, index + 1);
+
+            return firstCoin + remainCoin;
         }
     }
 }
