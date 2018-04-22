@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
@@ -27,13 +28,11 @@ namespace KataCountingChangeCombinations.Tests
             Assert.AreEqual(expected, acturl);
         }
 
-        [Test()]
-        public void CountCombinationsTest_SampleCase()
+        [TestCase(4, new[] { 1, 2 }, 3)]
+        [TestCase(10, new[] { 5, 2, 3 }, 4)]
+        public void CountCombinationsTest_SampleCase(int money, int[] coins, int expected)
         {
             //arrange
-            var money = 4;
-            var coins = new[] { 1, 2 };
-            var expected = 3;
 
             //act
             var acturl = CountingChangeCombinations.CountCombinations(money, coins);
