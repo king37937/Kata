@@ -30,10 +30,10 @@ namespace KataCountingChangeCombinations
                 return 0;
             }
 
-            var firstCoin = FindCombination(money - coins[index], coins, index);
-            var remainCoin = FindCombination(money, coins, index + 1);
+            var takeFirstCoin = FindCombination(money - coins[index], coins, index);
+            var notTakeFirstCoin = FindCombination(money, coins, index + 1);
 
-            return firstCoin + remainCoin;
+            return takeFirstCoin + notTakeFirstCoin;
         }
     }
 }
