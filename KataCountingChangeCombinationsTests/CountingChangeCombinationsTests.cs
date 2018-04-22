@@ -40,5 +40,19 @@ namespace KataCountingChangeCombinations.Tests
             //assert
             Assert.AreEqual(expected, acturl);
         }
+
+        [TestCase(10, new[] { 1 }, 1)]
+        [TestCase(10, new[] { 2 }, 1)]
+        [TestCase(10, new[] { 5 }, 1)]
+        public void CountCombinationsTest_OneCoin_Should_Return_One(int money, int[] coins, int expected)
+        {
+            //arrange
+
+            //act
+            var acturl = CountingChangeCombinations.CountCombinations(money, coins);
+
+            //assert
+            Assert.AreEqual(expected, acturl);
+        }
     }
 }
