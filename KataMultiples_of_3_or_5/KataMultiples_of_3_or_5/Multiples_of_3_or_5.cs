@@ -10,19 +10,15 @@ namespace KataMultiples_of_3_or_5
     {
         public int Sum(int n)
         {
-            var list = GetList(n, item => item % 3 == 0 || item % 5 == 0);
-            return list.Sum();
+            return GenerateList(n).Where(x => x % 3 == 0 || x % 5 == 0).Sum();
         }
 
-        private IEnumerable<int> GetList(int n, Func<int, bool> predicate)
+        private IEnumerable<int> GenerateList(int n)
         {
             var list = Enumerable.Range(1, n - 1);
             foreach (var item in list)
             {
-                if (predicate(item))
-                {
-                    yield return item;
-                }
+                yield return item;
             }
         }
     }
