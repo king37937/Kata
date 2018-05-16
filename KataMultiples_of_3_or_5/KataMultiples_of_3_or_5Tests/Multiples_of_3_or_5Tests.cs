@@ -1,26 +1,26 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using KataMultiples_of_3_or_5;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NUnit.Framework;
 
 namespace KataMultiples_of_3_or_5.Tests
 {
-    [TestClass()]
+    [TestFixture]
     public class Multiples_of_3_or_5Tests
     {
-        [TestMethod()]
-        public void SampleCase()
+        [TestCase(10, 23)]
+        [TestCase(3, 0)]
+        [TestCase(4, 3)]
+        [TestCase(6, 8)]
+        [TestCase(16, 60)]
+        public void SampleCase(int n, int expected)
         {
             var target = new Multiples_of_3_or_5();
-            var number = 10;
-            var expected = 23;
 
-            var actual = target.Sum(number);
+            var actual = target.Sum(n);
 
             Assert.AreEqual(expected, actual);
         }
+
+       
+
+
     }
 }
