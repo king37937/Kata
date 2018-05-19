@@ -14,7 +14,15 @@ namespace KataReverseWords.Tests
         [TestCase("This", ExpectedResult = "sihT")]
         [TestCase("a", ExpectedResult = "a")]
         [TestCase("pen", ExpectedResult = "nep")]
-        public string TestSingleWord(string wordToReverse)
+        public string Test_Single_Word(string wordToReverse)
+        {
+            var target = new Kata();
+            return target.ReverseWords(wordToReverse);
+        }
+
+        [TestCase("This a", ExpectedResult = "sihT a")]
+        [TestCase("a pen", ExpectedResult = "a nep")]
+        public string Test_Two_Words(string wordToReverse)
         {
             var target = new Kata();
             return target.ReverseWords(wordToReverse);
