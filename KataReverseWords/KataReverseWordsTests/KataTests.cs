@@ -36,5 +36,13 @@ namespace KataReverseWords.Tests
             return target.ReverseWords(wordToReverse);
         }
 
+        [TestCase("This  a pen", ExpectedResult = "sihT  a nep")]
+        [TestCase("This  a  pen", ExpectedResult = "sihT  a  nep")]
+        public string Test_Double_Space(string wordToReverse)
+        {
+            var target = new Kata();
+            return target.ReverseWords(wordToReverse);
+        }
+
     }
 }
