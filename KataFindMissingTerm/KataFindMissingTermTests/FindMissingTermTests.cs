@@ -58,5 +58,17 @@ namespace KataFindMissingTerm.Tests
 
             Assert.AreEqual(expected, actual);
         }
+
+        [Test()]
+        public void FindMissingTest_negive_interval()
+        {
+            var list = new List<int> { 17, 15, 11, 9, 7 };
+            var target = new FindMissingTerm();
+            var expected = 13;
+
+            var actual = target.FindMissing(list);
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
