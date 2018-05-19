@@ -27,5 +27,14 @@ namespace KataReverseWords.Tests
             var target = new Kata();
             return target.ReverseWords(wordToReverse);
         }
+
+        [TestCase("This a pen", ExpectedResult = "sihT a nep")]
+        [TestCase("Hello everyone, nice to meet you.", ExpectedResult = "olleH ,enoyreve ecin ot teem .uoy")]
+        public string Test_Three_or_More_Words(string wordToReverse)
+        {
+            var target = new Kata();
+            return target.ReverseWords(wordToReverse);
+        }
+
     }
 }
