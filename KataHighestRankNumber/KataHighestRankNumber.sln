@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataHighestRankNumber", "KataHighestRankNumber\KataHighestRankNumber.csproj", "{854AF9BC-7C85-4231-AF02-97DA1B682343}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataHighestRankNumberTests", "KataHighestRankNumberTests\KataHighestRankNumberTests.csproj", "{47B29460-EB64-4D1E-BE41-58EA94C15051}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{854AF9BC-7C85-4231-AF02-97DA1B682343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{854AF9BC-7C85-4231-AF02-97DA1B682343}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{854AF9BC-7C85-4231-AF02-97DA1B682343}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{854AF9BC-7C85-4231-AF02-97DA1B682343}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47B29460-EB64-4D1E-BE41-58EA94C15051}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47B29460-EB64-4D1E-BE41-58EA94C15051}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47B29460-EB64-4D1E-BE41-58EA94C15051}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47B29460-EB64-4D1E-BE41-58EA94C15051}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA5311C6-65DB-4F5A-8120-FEFEB4F92674}
+	EndGlobalSection
+EndGlobal
