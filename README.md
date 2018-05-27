@@ -18,3 +18,6 @@ https://www.codewars.com/kata/multiples-of-3-or-5/
 
 Reverse Words
 https://www.codewars.com/kata/reverse-words/
+
+Highest Rank Number In An Array
+https://www.codewars.com/kata/highest-rank-number-in-an-array/
