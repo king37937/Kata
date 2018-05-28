@@ -28,6 +28,7 @@ namespace KataHighestRankNumber.Tests
         }
 
         [TestCase(new[] { 12, 10, 8, 12, 7, 6, 4, 10, 12, 10 }, ExpectedResult = 12)]
+        [TestCase(new[] { 10, 12, 8, 12, 7, 6, 4, 10, 12, 10 }, ExpectedResult = 12)]
         [TestCase(new[] { 12, 10, 8, 12, 7, 7, 7, 10, 12, 10 }, ExpectedResult = 12)]
         public int Test_SameCount_Should_Return_Highest_Number(int[] array)
         {
