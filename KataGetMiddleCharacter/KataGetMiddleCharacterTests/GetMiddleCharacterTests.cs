@@ -17,5 +17,19 @@ namespace KataGetMiddleCharacterTests
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestCase("test", "es")]
+        [TestCase("tESt", "ES")]
+        [TestCase("te", "te")]
+        [TestCase("testtesttesttesttesttesttesttesttesttest", "tt")]
+        [TestCase("123456", "34")]
+        public void length_even_should_return_middle_two_char(string s, string expected)
+        {
+            var target = new StringProceor();
+            var actual = target.GetMiddle(s);
+            Assert.AreEqual(expected, actual);
+        }
+
+       
     }
 }

@@ -11,6 +11,12 @@ namespace KataGetMiddleCharacter
                 return string.Empty;
             }
 
+            if (s.Length % 2 == 0)
+            {
+                var middle = s.Length / 2;
+                return "" + s[middle - 1] + s[middle];
+            }
+
             throw new NotImplementedException();
         }
     }
