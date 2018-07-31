@@ -11,16 +11,20 @@ namespace KataGetMiddleCharacter
                 return string.Empty;
             }
 
-            if (s.Length % 2 == 0)
+            var middle = s.Length / 2;
+            if (IsEven(s.Length))
             {
-                var middle = s.Length / 2;
-                return "" + s[middle - 1] + s[middle];
+                return string.Join("", s[middle - 1], s[middle]);
             }
             else
             {
-                var middle = s.Length / 2;
-                return "" + s[middle];
+                return s[middle].ToString();
             }
+        }
+
+        private bool IsEven(int length)
+        {
+            return length % 2 == 0;
         }
     }
 }
