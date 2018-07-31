@@ -30,6 +30,15 @@ namespace KataGetMiddleCharacterTests
             Assert.AreEqual(expected, actual);
         }
 
-       
+        [TestCase("a", "a")]
+        [TestCase("A", "A")]
+        [TestCase("testing", "t")]
+        [TestCase("TeStInG", "t")]
+        public void length_odd_should_return_middle_two_char(string s, string expected)
+        {
+            var target = new StringProceor();
+            var actual = target.GetMiddle(s);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
