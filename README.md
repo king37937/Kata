@@ -21,3 +21,6 @@ https://www.codewars.com/kata/reverse-words/
 
 Highest Rank Number In An Array
 https://www.codewars.com/kata/highest-rank-number-in-an-array/
+
+Get the Middle Character
+https://www.codewars.com/kata/get-the-middle-character/
